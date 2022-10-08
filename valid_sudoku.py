@@ -16,14 +16,15 @@ class Solution:
                 if self.check_duplicate(self.build_string(board, i, j)):
                     return False
         return True
-      
+    # This method is used to build the elements that are in the smaller matrix boxes 
     def build_string(self, board, row,col) -> List[str]:
         answer_list = []
         for i in range(row, row+3):
             for j in range(col, col+3):
                 answer_list.append(board[i][j])
         return answer_list
-                
+    
+    # This method is used to check if there are duplicates or not in a list           
     def check_duplicate(self, cur_list: List[str]) -> bool:
         cur_nums = set()
         for each in cur_list:

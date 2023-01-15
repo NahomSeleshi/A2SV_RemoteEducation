@@ -3,11 +3,11 @@ class TopVotedCandidate:
     def __init__(self, persons: List[int], times: List[int]):
         vote = defaultdict(int)
 
-        # one elemenent of this list holds [the leader of the election, the number 
+        # one elemenent of this list below holds [the leader of the election, the number 
         # of votes he has, and the time that he is leading] as a single element [a, 5, 15]. 
         # Candidate a is leading with 5 votes at the 15th time unit.
-
         self.vote_at_time = []
+        
         for i in range(len(times)):
             vote[persons[i]] += 1
             if self.vote_at_time:

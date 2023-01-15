@@ -12,8 +12,6 @@ class Solution:
 
         return cur_days
 
-
-
     def shipWithinDays(self, weights: List[int], days: int) -> int:
         left, right = max(weights), sum(weights)
         least_weight = sum(weights)

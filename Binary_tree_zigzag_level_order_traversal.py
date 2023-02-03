@@ -18,27 +18,20 @@ class Solution:
             children = []
             for i in range(len(queue)):
 
-                if direction == "LR":
-                    cur_node = queue.pop()
-                    children.append(cur_node.val)
+                cur_node = queue.popleft()
+                children.append(cur_node.val)
 
-                    if cur_node.left:
-                        queue.appendleft(cur_node.left)
-                    if cur_node.right:
-                        queue.appendleft(cur_node.right)
+                if cur_node.left:
+                    queue.append(cur_node.left)
+                if cur_node.right:
+                    queue.append(cur_node.right)
 
-                else:
-                    cur_node = queue.popleft()
-                    children.append(cur_node.val)                    
-                    if cur_node.right:
-                        queue.append(cur_node.right)
-                    if cur_node.left:
-                        queue.append(cur_node.left)
+            if direction == "LR":
+                zigzag_traversal.append(children)
+            else:
+                zigzag_traversal.append(children[::-1])
 
-            zigzag_traversal.append(children)
             direction = "RL" if direction == "LR" else "LR"
 
         return zigzag_traversal
-                    
-
-
+                
